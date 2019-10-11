@@ -1,36 +1,32 @@
-\newcommand{\as}{\\[14pt]}
-\newcommand{\s}{\\[7pt]}
-\newcommand{\is}{\\[2pt]}
-\newcommand{\no}{\noindent}
-\newcommand{\ka}{\hspace*{0.5cm}}
-\newcommand{\ma}{\hspace*{1cm}}
-\newcommand{\ga}{\hspace*{1.5cm}}
-\newcommand{\li}{\left|}
-\newcommand{\re}{\right|}
-\newcommand{\const}{\text{const.}}
 \newcommand{\z}{\text}
 \newcommand{\terminal}[1]{\colorbox{black}{\textcolor{white}{{\fontfamily{phv}\selectfont \scriptsize{#1}}}}}
 \newcommand{\plugin}[1]{\textit{\flq#1\frq}}
 \newcommand{\ra}{$\rightarrow$ }
-\definecolor{cadmiumgreen}{rgb}{0.0, 0.42, 0.24}
 \newcommand{\itemfill}{\setlength{\itemsep}{\fill}}
 \newcommand{\orderof}[1]{$\mathcal{O}\left(#1\right)$}
-\newcommand{\fig}[2]{\begin{figure}\centering\includegraphics[height={#2}\textheight]{#1}\end{figure}}
-\newcommand{\figc}[3]{\begin{figure}\centering\includegraphics[height={#2}\textheight]{#1}\caption{#3}\end{figure}}
-\newcommand{\figcl}[4]{\begin{figure}\centering\includegraphics[height={#2}\textheight]{#1}\caption{#3}\label{#4}\end{figure}}
-\newcommand{\figpcl}[4]{\begin{figure}\centering\includegraphics[width={#2}\textheight, angle=-90]{#1}\caption{#3}\label{#4}\end{figure}}
-\newcommand{\figp}[2]{\begin{figure}\centering\includegraphics[width={#2}\textheight, angle=-90]{#1}\end{figure}}
-\newcommand{\figpc}[3]{\begin{figure}\centering\includegraphics[width={#2}\textheight, angle=-90]{#1}\caption{#3}\end{figure}}
-\newcommand{\wrapfigcl}[4]{\begin{wrapfigure}{r}{{#2}\textwidth}\centering\includegraphics[width={#2}\textwidth]{#1}\caption{#3}\label{#4}\end{wrapfigure}}
-\newcommand{\wrapfiglcl}[4]{\begin{wrapfigure}{r}{{#2}\textwidth}\centering\includegraphics[height={#2}\textwidth, angle=-90]{#1}\caption{#3}\label{#4}\end{wrapfigure}}
-\newcommand{\subfig}[4][0.45]{\begin{subfigure}{{#1}\textwidth}\centering
-			\includegraphics[height={#3}\textheight]{#2}
-			\caption{#4}\end{subfigure}}
-\newcommand{\subfigp}[4][0.45]{\begin{subfigure}{{#1}\textwidth}\centering
-			\includegraphics[width={#3}\textheight, angle=-90]{#2}
-			\caption{#4}\end{subfigure}}
+\renewcommand{\deg}{$^{\circ}$}
+\newcommand{\fpath}[1]{\textbf{\path{#1}}}
+\newcommand{\alternatecolors}{\rowcolors{2}{gray!5}{gray!15}}
+\newcommand{\missfig}[1][.5]{\begin{center} \missingfigure[figheight=#1\textheight,figwidth=#1\textheight, figcolor=white]{}\end{center}}
+\newcommand{\caplab}[2]{\ifthenelse{\equal{#1}{nocap}}{}{\caption{#1}}\ifthenelse{\equal{#2}{nolab}}{}{\label{#2}}}
+\newcommand{\pic}[3]{\ifthenelse{\equal{#1}{r}}{\includegraphics[width={#2\textheight}, angle=-90]{#3}}{\includegraphics[height={#2\textheight}]{#3}}}
+%SUBFIG
+\DeclareDocumentCommand{\subfig}{O{.45} O{0} m O{l} m O{nocap} O{nolab}}{\begin{subfigure}{#1\linewidth}\vspace*{#2\textheight}\centering\pic{#4}{#3}{#5}\caplab{#6}{#7}\end{subfigure}}
+%SUBFIGS
+\DeclareDocumentCommand{\subfigs}{O{fig} m m O{nocap} O{nolab}}{\begin{figure}[ht!]\centering\ifthenelse{\equal{#1}{fig}}{}{#1\hspace*{.05\linewidth}}#2\hspace*{.05\linewidth}#3\caplab{#4}{#5}\end{figure}}
+%FIG
+\DeclareDocumentCommand{\fig}{O{n} m m O{nocap} O{nolab}}{\begin{figure}[h!]\centering\pic{#1}{#2}{#3}\caplab{#4}{#5}\end{figure}}
+% WRAPFIG
+\DeclareDocumentCommand{\wrapfig}{O{l} m m O{nocap} O{nolab}}{
+	\begin{wrapfigure}{#1}{#2\linewidth}\vspace*{-10pt}\includegraphics[width={.95\linewidth}]{#3}\caplab{#4}{#5}\vspace*{-10pt}\end{wrapfigure}}
+\DeclareSIUnit\mhzcm{\mega\hertz\per\centi\meter^2}
+\DeclareSIUnit\khzcm{\kilo\hertz\per\centi\meter^2}
+\DeclareSIUnit\ncm{n\per\centi\meter^2}
+\newcommand\sccvd{\ac{sc}\ac{CVD} }
+\newcommand\pcvd{\ac{p}\ac{CVD} }
+\DeclareSIUnit\ev{\electronvolt}
+\DeclareSIUnit\gev{\giga\ev}
+\DeclareSIUnit\mev{\mega\ev}
 \newcommand{\auth}[2][1]{#2$^{#1}$}
 \newcommand{\aff}[2][1]{\llap{$^{#1}$}#2\\}
 \newcommand{\affn}[2][1]{{$^{#1}$}#2\\}
-\newcommand\sccvd{\ac{sc}\ac{CVD} }
-\newcommand\pcvd{\ac{p}\ac{CVD} }
