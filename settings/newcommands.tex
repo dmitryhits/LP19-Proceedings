@@ -7,6 +7,7 @@
 \renewcommand{\deg}{$^{\circ}$}
 \newcommand{\fpath}[1]{\textbf{\path{#1}}}
 \newcommand{\alternatecolors}{\rowcolors{2}{gray!5}{gray!15}}
+\newcommand{\tline}[1]{\noalign{\hrule height #1pt}}
 \newcommand{\missfig}[1][.5]{\begin{center} \missingfigure[figheight=#1\textheight,figwidth=#1\textheight, figcolor=white]{}\end{center}}
 \newcommand{\caplab}[2]{\ifthenelse{\equal{#1}{nocap}}{}{\caption{#1}}\ifthenelse{\equal{#2}{nolab}}{}{\label{#2}}}
 \newcommand{\pic}[3]{\ifthenelse{\equal{#1}{r}}{\includegraphics[width={#2\textheight}, angle=-90]{#3}}{\includegraphics[height={#2\textheight}]{#3}}}
@@ -19,6 +20,9 @@
 % WRAPFIG
 \DeclareDocumentCommand{\wrapfig}{O{l} m m O{nocap} O{nolab}}{
 	\begin{wrapfigure}{#1}{#2\linewidth}\vspace*{-10pt}\includegraphics[width={.95\linewidth}]{#3}\caplab{#4}{#5}\vspace*{-10pt}\end{wrapfigure}}
+% NICETAB
+\DeclareDocumentCommand{\nicetab}{m m O{nocap} O{nolab}}{
+    \begin{table}[ht!]\centering\setlength\extrarowheight{2pt}\alternatecolors\begin{tabular}{#1}\rowcolor{darkgray!30}\tline{.5} #2\tline{.5}\end{tabular}\caplab{#3}{#4}\end{table}}
 \DeclareSIUnit\mhzcm{\mega\hertz\per\centi\meter^2}
 \DeclareSIUnit\khzcm{\kilo\hertz\per\centi\meter^2}
 \DeclareSIUnit\ncm{n\per\centi\meter^2}
