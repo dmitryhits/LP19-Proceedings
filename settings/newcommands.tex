@@ -16,7 +16,7 @@
 %SUBFIGS
 \DeclareDocumentCommand{\subfigs}{O{fig} m m O{nocap} O{nolab}}{\begin{figure}[ht!]\centering\ifthenelse{\equal{#1}{fig}}{}{#1\hspace*{.05\linewidth}}#2\hspace*{.05\linewidth}#3\caplab{#4}{#5}\end{figure}}
 %FIG
-\DeclareDocumentCommand{\fig}{O{n} m m O{nocap} O{nolab}}{\begin{figure}[h!]\centering\pic{#1}{#2}{#3}\caplab{#4}{#5}\end{figure}}
+\DeclareDocumentCommand{\fig}{O{n} m m O{nocap} O{nolab}}{\begin{figure}[ht!]\centering\pic{#1}{#2}{#3}\caplab{#4}{#5}\end{figure}}
 % WRAPFIG
 \DeclareDocumentCommand{\wrapfig}{O{l} m m O{nocap} O{nolab}}{
 	\begin{wrapfigure}{#1}{#2\linewidth}\vspace*{-10pt}\includegraphics[width={.95\linewidth}]{#3}\caplab{#4}{#5}\vspace*{-10pt}\end{wrapfigure}}
